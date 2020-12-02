@@ -1,24 +1,26 @@
-const arr = [
-  { name: 'Elie' },
-  { name: 'Tim' },
-  { name: 'Matt' },
-  { name: 'Colt' },
-];
+const arr1 = [5, 6, 7, 8];
 
-function addKeyAndValue1(arr, key, value) {
-  return arr.reduce(function (accumulator, nextValue, index) {
-    accumulator[index][key] = value;
-    return accumulator;
-  }, arr);
+function isEven(val) {
+  return val % 2 === 0;
 }
 
-console.log(addKeyAndValue1(arr, 'title', 'Instructor'));
-
-/* 
-function addKeyAndValue(arr, key, value){
-    return arr.reduce(function(acc,next,idx){
-        acc[idx][key] = value;
-        return acc;
-    },arr);
+function partition1(arr, callback) {
+  return arr.reduce(function (a, b) {
+    if (a === null) {
+      a = [[], []];
+    }
+    if (callback(b)) {
+      a[0].push(b);
+    } else {
+      a[1].push(b);
+    }
+    return a;
+  }, null);
 }
-*/
+console.log(partition1(arr1, isEven));
+
+let caca = [[], []];
+const average = arr1.reduce(function (a, b) {
+  return a + b / arr1.length;
+}, 0);
+console.log(average);

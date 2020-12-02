@@ -91,4 +91,16 @@ Examples:
     partition(names, isLongerThanThreeCharacters) // [['Elie', 'Colt', 'Matt'], ['Tim']]
 */
 
-function partition(arr, callback) {}
+function partition(arr, callback) {
+  return arr.reduce(function (a, b) {
+    if (a === null) {
+      a = [[], []];
+    }
+    if (callback(b)) {
+      a[0].push(b);
+    } else {
+      a[1].push(b);
+    }
+    return a;
+  }, null);
+}
